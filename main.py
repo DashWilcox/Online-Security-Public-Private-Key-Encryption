@@ -27,3 +27,42 @@ def primes_less_than(n):
 	return all_primes
 
 print("All primes less than 1,000:\n"+str(primes_less_than(1000)))
+
+
+def calculate_N(p,q):
+	return(p*q)
+
+def calculate_T(p,q):
+	T= (p-1)*(q-1)
+	return T
+
+def pick_e_d(p,q):
+	T = calculate_T(p,q)
+	N = calculate_N(p,q)
+	e = 0
+	d = 0
+	
+	for value in range(T,1,-1):
+		if is_coprime(value, T) and is_coprime(value, N):
+				e = value
+				switch = True
+				break
+			
+	for value in range((T**3),1,-1):
+		if ((e*value)%T)==1:
+				d= value
+				switch2=True
+				break
+			
+	print(e,d)
+	return (e,d)
+				
+
+
+
+
+p = int(input("Give a prime number"))
+q = int(input("Give another prime number"))
+
+pick_e_d(p,q)
+
